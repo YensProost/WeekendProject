@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace WeekendProjectje.Tests
+namespace WeekendProject.BLL.Factory
 {
     public static class Factory<T>
     {
