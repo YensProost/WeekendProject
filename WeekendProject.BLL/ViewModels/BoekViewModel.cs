@@ -1,20 +1,22 @@
-﻿namespace WeekendProject.BLL
+﻿using WeekendProject.DAL;
+
+namespace WeekendProject.BLL
 {
     public class BoekViewModel
     {
-        public bool LeenBoekUit(Boek boek ,Persoon persoon)
+        public bool LeenBoekUit(Boek boek ,Persoon persoon, BoekenRepository boekRepository)
         {
-            if (!BoekenKast.HeeftBoek(boek)) return false;
-            BoekenKast.Remove(boek);
-            boek.InHetBezitVan = persoon;
+            if (!Boekenkast.HeeftBoek(boek)) return false;
+            boekRepository.EditInbezit(boek,persoon.PersoonId);
+            Boekenkast.Remove(boek);
             return true;
         }
 
 
-        public void KrijgBoekTerug(Boek boek)
+        public void KrijgBoekTerug(Boek boek,BoekenRepository boekenRepository)
         {
-            BoekenKast.Add(boek);
-            boek.InHetBezitVan = new Persoon("QFrame", "Nv");
+            boekenRepository.EditInbezit(boek);
+            Boekenkast.Add(boek);
         }
     }
 }

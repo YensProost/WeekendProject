@@ -1,28 +1,49 @@
-﻿using NUnit.Framework;
-using WeekendProject.BLL;
+﻿using WeekendProject.BLL;
 using WeekendProject.BLL.Factory;
+using WeekendProject.DAL;
+using Xunit;
 
 namespace WeekendProjectje.Tests
 {
-    [TestFixture]
-    public class BoekenKastTests
+    
+    public class BoekenkastTests
     {
-        [Test]
-        public void een_boek_staat_in_de_bibliotheek_als_het_aangekocht_word()
+        public BoekenkastContext Context { get; set; }
+        public BoekenRepository BoekRepo { get; set; }
+        public Boek TestBoek { get; set; }
+        public PersonenRepository PersoonRepo { get; set; }
+        public Persoon Lener { get; set; }
+        public Persoon Lener2 { get; set; }
+        public BoekViewModel BoekOperaties { get; set; }
+
+        public BoekenkastTests()
         {
-            var boek = Factory<Boek>.MaakAan("Het leven van een javadev","Yens Proost");
-            Assert.IsTrue(BoekenKast.HeeftBoek(boek));
+            BoekOperaties = Factory<BoekViewModel>.MaakAan();
+            Context = new BoekenkastContext();
+            PersoonRepo = new PersonenRepository(Context);
+            BoekRepo = new BoekenRepository(Context);
+            TestBoek = BoekRepo.GetById(2);
+            Boekenkast.Add(TestBoek);
+            Lener = PersoonRepo.GetById(5);
+            Lener2 = PersoonRepo.GetById(6);
         }
 
-        [Test]
+        [Fact]
+        public void een_lijst_van_alle_boeken_wordt_weergegeven()
+        {
+            Assert.Equal(Boekenkast.AantalBoeken(),BoekRepo.GetAll().Count);
+        }
+
+        [Fact]
         public void een_boek_staat_niet_in_de_bibliotheek()
         {
-            var boek = Factory<Boek>.MaakAan("Het leven van een javadev", "Yens Proost");
-            var lener = Factory<Persoon>.MaakAan("John", "Doe");
-            var boekOperaties = Factory<BoekViewModel>.MaakAan();
-            boekOperaties.LeenBoekUit(boek,lener);
-            Assert.IsFalse(BoekenKast.HeeftBoek(boek));
+            BoekOperaties.LeenBoekUit(TestBoek,Lener,BoekRepo);
+            Assert.False(Boekenkast.HeeftBoek(TestBoek));
         }
 
+        public void Dispose()
+        {
+            Boekenkast.Clear();
+        }
     }
 }

@@ -39,12 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Boek.cs" />
-    <Compile Include="Model\BoekenKast.cs" />
     <Compile Include="ViewModels\BoekViewModel.cs" />
     <Compile Include="Factory\Factory.cs" />
-    <Compile Include="Model\Persoon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeekendProject.DAL\WeekendProject.DAL.csproj">
+      <Project>{52D3255D-E685-4D2D-8F9E-E4322BCE69FA}</Project>
+      <Name>WeekendProject.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
