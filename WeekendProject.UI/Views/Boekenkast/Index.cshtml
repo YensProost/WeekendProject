@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WeekendProject.DAL.Boek>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lijst met boeken aanwezig in de database.</h2>
+<br/>
+@Html.ActionLink("Koop een nieuw boek.","Create","Boekenkast")
+<table>
+    <tr>
+        <td>
+            @foreach (var item in Model)
+            {
+                <h4> @item.Auteur</h4>
+                <div>@item.BoekId., @item.Titel</div>
+            }
+        </td>
+        <td>
+            <button name="EditButton" type="button" onclick="">Wijzig dit boek.</button>
+        </td>
+    </tr>
+</table>

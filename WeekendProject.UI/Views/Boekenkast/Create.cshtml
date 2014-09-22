@@ -1,0 +1,15 @@
+﻿@model WeekendProject.DAL.Boek
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("VoegBoekToe", "Boekenkast", FormMethod.Post))
+{
+    <h2>Aangekocht Boek:</h2>
+    <h2>Auteur</h2>
+    @Html.TextBoxFor(model => model.Auteur)
+    <h2>Titel</h2>
+    @Html.TextBoxFor(model => model.Titel)
+    <br/>
+    <button type="submit">Zet het nieuwe boek in de boekenkast</button>
+}
