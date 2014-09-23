@@ -1083,7 +1083,7 @@ jQuery.Callbacks = function( flags ) {
 				}
 				return this;
 			},
-			// Remove a callback from the list
+			// VerwijderUitBoekenkast a callback from the list
 			remove: function() {
 				if ( list ) {
 					var args = arguments,
@@ -1101,7 +1101,7 @@ jQuery.Callbacks = function( flags ) {
 										}
 									}
 								}
-								// Remove the element
+								// VerwijderUitBoekenkast the element
 								list.splice( i--, 1 );
 								// If we have some unicity property then
 								// we only need to do this once
@@ -1127,7 +1127,7 @@ jQuery.Callbacks = function( flags ) {
 				}
 				return false;
 			},
-			// Remove all callbacks from the list
+			// VerwijderUitBoekenkast all callbacks from the list
 			empty: function() {
 				list = [];
 				return this;
@@ -2654,7 +2654,7 @@ boolHook = {
 	set: function( elem, value, name ) {
 		var propName;
 		if ( value === false ) {
-			// Remove boolean attributes when set to false
+			// VerwijderUitBoekenkast boolean attributes when set to false
 			jQuery.removeAttr( elem, name );
 		} else {
 			// value is true since we know at this point it's type boolean and not false
@@ -2984,7 +2984,7 @@ jQuery.event = {
 			origCount = eventType.length;
 			namespaces = namespaces ? new RegExp("(^|\\.)" + namespaces.split(".").sort().join("\\.(?:.*\\.)?") + "(\\.|$)") : null;
 
-			// Remove matching events
+			// VerwijderUitBoekenkast matching events
 			for ( j = 0; j < eventType.length; j++ ) {
 				handleObj = eventType[ j ];
 
@@ -3003,7 +3003,7 @@ jQuery.event = {
 				}
 			}
 
-			// Remove generic event handler if we removed something and no more handlers exist
+			// VerwijderUitBoekenkast generic event handler if we removed something and no more handlers exist
 			// (avoids potential for endless recursion during removal of special event handlers)
 			if ( eventType.length === 0 && origCount !== eventType.length ) {
 				if ( !special.teardown || special.teardown.call( elem, namespaces ) === false ) {
@@ -3014,7 +3014,7 @@ jQuery.event = {
 			}
 		}
 
-		// Remove the expando if it's no longer used
+		// VerwijderUitBoekenkast the expando if it's no longer used
 		if ( jQuery.isEmptyObject( events ) ) {
 			handle = elemData.handle;
 			if ( handle ) {
@@ -3574,7 +3574,7 @@ if ( !jQuery.support.submitBubbles ) {
 				return false;
 			}
 
-			// Remove delegated handlers; cleanData eventually reaps submit handlers attached above
+			// VerwijderUitBoekenkast delegated handlers; cleanData eventually reaps submit handlers attached above
 			jQuery.event.remove( this, "._submit" );
 		}
 	};
@@ -5817,12 +5817,12 @@ jQuery.fn.extend({
 
 	empty: function() {
 		for ( var i = 0, elem; (elem = this[i]) != null; i++ ) {
-			// Remove element nodes and prevent memory leaks
+			// VerwijderUitBoekenkast element nodes and prevent memory leaks
 			if ( elem.nodeType === 1 ) {
 				jQuery.cleanData( elem.getElementsByTagName("*") );
 			}
 
-			// Remove any remaining nodes
+			// VerwijderUitBoekenkast any remaining nodes
 			while ( elem.firstChild ) {
 				elem.removeChild( elem.firstChild );
 			}
@@ -5855,7 +5855,7 @@ jQuery.fn.extend({
 
 			try {
 				for ( var i = 0, l = this.length; i < l; i++ ) {
-					// Remove element nodes and prevent memory leaks
+					// VerwijderUitBoekenkast element nodes and prevent memory leaks
 					if ( this[i].nodeType === 1 ) {
 						jQuery.cleanData( this[i].getElementsByTagName("*") );
 						this[i].innerHTML = value;
@@ -6305,7 +6305,7 @@ jQuery.extend({
 						div = div.lastChild;
 					}
 
-					// Remove IE's autoinserted <tbody> from table fragments
+					// VerwijderUitBoekenkast IE's autoinserted <tbody> from table fragments
 					if ( !jQuery.support.tbody ) {
 
 						// String was a <table>, *may* have spurious <tbody>
@@ -7444,7 +7444,7 @@ jQuery.extend({
 			return this;
 		};
 
-		// Remove hash character (#7531: and string promotion)
+		// VerwijderUitBoekenkast hash character (#7531: and string promotion)
 		// Add protocol if not provided (#5866: IE7 issue with protocol-less urls)
 		// We also use the url parameter if available
 		s.url = ( ( url || s.url ) + "" ).replace( rhash, "" ).replace( rprotocol, ajaxLocParts[ 1 ] + "//" );
@@ -7694,7 +7694,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 		}
 	}
 
-	// Remove auto dataType and get content-type in the process
+	// VerwijderUitBoekenkast auto dataType and get content-type in the process
 	while( dataTypes[ 0 ] === "*" ) {
 		dataTypes.shift();
 		if ( ct === undefined ) {
@@ -7966,7 +7966,7 @@ jQuery.ajaxTransport( "script", function(s) {
 						// Handle memory leak in IE
 						script.onload = script.onreadystatechange = null;
 
-						// Remove the script
+						// VerwijderUitBoekenkast the script
 						if ( head && script.parentNode ) {
 							head.removeChild( script );
 						}

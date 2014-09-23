@@ -64,10 +64,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WeekendProject.BLL\WeekendProject.BLL.csproj">
-      <Project>{DB4C7340-E56C-4527-AD09-3B16471946C2}</Project>
-      <Name>WeekendProject.BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WeekendProject.DAL\WeekendProject.DAL.csproj">
       <Project>{52D3255D-E685-4D2D-8F9E-E4322BCE69FA}</Project>
       <Name>WeekendProject.DAL</Name>

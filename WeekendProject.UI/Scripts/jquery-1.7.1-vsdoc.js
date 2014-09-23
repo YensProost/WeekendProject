@@ -189,7 +189,7 @@ jQuery.Callbacks = function( flags ) {
 				}
 				return this;
 			},
-			// Remove a callback from the list
+			// VerwijderUitBoekenkast a callback from the list
 			remove: function() {
 				if ( list ) {
 					var args = arguments,
@@ -207,7 +207,7 @@ jQuery.Callbacks = function( flags ) {
 										}
 									}
 								}
-								// Remove the element
+								// VerwijderUitBoekenkast the element
 								list.splice( i--, 1 );
 								// If we have some unicity property then
 								// we only need to do this once
@@ -233,7 +233,7 @@ jQuery.Callbacks = function( flags ) {
 				}
 				return false;
 			},
-			// Remove all callbacks from the list
+			// VerwijderUitBoekenkast all callbacks from the list
 			empty: function() {
 				list = [];
 				return this;
@@ -728,7 +728,7 @@ jQuery.ajax = function( url, options ) {
 			return this;
 		};
 
-		// Remove hash character (#7531: and string promotion)
+		// VerwijderUitBoekenkast hash character (#7531: and string promotion)
 		// Add protocol if not provided (#5866: IE7 issue with protocol-less urls)
 		// We also use the url parameter if available
 		s.url = ( ( url || s.url ) + "" ).replace( rhash, "" ).replace( rprotocol, ajaxLocParts[ 1 ] + "//" );
@@ -1224,7 +1224,7 @@ jQuery.clean = function( elems, context, fragment, scripts ) {
 						div = div.lastChild;
 					}
 
-					// Remove IE's autoinserted <tbody> from table fragments
+					// VerwijderUitBoekenkast IE's autoinserted <tbody> from table fragments
 					if ( !jQuery.support.tbody ) {
 
 						// String was a <table>, *may* have spurious <tbody>
@@ -2654,7 +2654,7 @@ jQuery.removeAttr = function( elem, value ) {
 	};
 jQuery.removeData = function( elem, name, pvt /* Internal Use Only */ ) {
 /// <summary>
-///     Remove a previously-stored piece of data.
+///     VerwijderUitBoekenkast a previously-stored piece of data.
 /// </summary>
 /// <param name="elem" domElement="true">
 ///     A DOM element from which to remove data.
@@ -2977,7 +2977,7 @@ jQuery.text = function( elem ) {
 };
 jQuery.trim = function( text ) {
 /// <summary>
-///     Remove the whitespace from the beginning and end of a string.
+///     VerwijderUitBoekenkast the whitespace from the beginning and end of a string.
 /// </summary>
 /// <param name="text" type="String">
 ///     The string to trim.
@@ -3696,7 +3696,7 @@ jQuery.prototype.children = function( until, selector ) {
 	};
 jQuery.prototype.clearQueue = function( type ) {
 /// <summary>
-///     Remove from the queue all items that have not yet been run.
+///     VerwijderUitBoekenkast from the queue all items that have not yet been run.
 /// </summary>
 /// <param name="type" type="String">
 ///     A string containing the name of the queue. Defaults to fx, the standard effects queue.
@@ -4041,7 +4041,7 @@ jQuery.prototype.dequeue = function( type ) {
 	};
 jQuery.prototype.detach = function( selector ) {
 /// <summary>
-///     Remove the set of matched elements from the DOM.
+///     VerwijderUitBoekenkast the set of matched elements from the DOM.
 /// </summary>
 /// <param name="selector" type="String">
 ///     A selector expression that filters the set of matched elements to be removed.
@@ -4052,9 +4052,9 @@ jQuery.prototype.detach = function( selector ) {
 	};
 jQuery.prototype.die = function( types, fn ) {
 /// <summary>
-///     1: Remove all event handlers previously attached using .live() from the elements.
+///     1: VerwijderUitBoekenkast all event handlers previously attached using .live() from the elements.
 ///     &#10;    1.1 - die()
-///     &#10;2: Remove an event handler previously attached using .live() from the elements.
+///     &#10;2: VerwijderUitBoekenkast an event handler previously attached using .live() from the elements.
 ///     &#10;    2.1 - die(eventType, handler) 
 ///     &#10;    2.2 - die(eventTypes)
 /// </summary>
@@ -4151,17 +4151,17 @@ jQuery.prototype.each = function( callback, args ) {
 	};
 jQuery.prototype.empty = function() {
 /// <summary>
-///     Remove all child nodes of the set of matched elements from the DOM.
+///     VerwijderUitBoekenkast all child nodes of the set of matched elements from the DOM.
 /// </summary>
 /// <returns type="jQuery" />
 
 		for ( var i = 0, elem; (elem = this[i]) != null; i++ ) {
-			// Remove element nodes and prevent memory leaks
+			// VerwijderUitBoekenkast element nodes and prevent memory leaks
 			if ( elem.nodeType === 1 ) {
 				jQuery.cleanData( elem.getElementsByTagName("*") );
 			}
 
-			// Remove any remaining nodes
+			// VerwijderUitBoekenkast any remaining nodes
 			while ( elem.firstChild ) {
 				elem.removeChild( elem.firstChild );
 			}
@@ -4702,7 +4702,7 @@ jQuery.prototype.html = function( value ) {
 
 			try {
 				for ( var i = 0, l = this.length; i < l; i++ ) {
-					// Remove element nodes and prevent memory leaks
+					// VerwijderUitBoekenkast element nodes and prevent memory leaks
 					if ( this[i].nodeType === 1 ) {
 						jQuery.cleanData( this[i].getElementsByTagName("*") );
 						this[i].innerHTML = value;
@@ -5431,7 +5431,7 @@ jQuery.prototype.nextUntil = function( until, selector ) {
 	};
 jQuery.prototype.not = function( selector ) {
 /// <summary>
-///     Remove elements from the set of matched elements.
+///     VerwijderUitBoekenkast elements from the set of matched elements.
 ///     &#10;1 - not(selector) 
 ///     &#10;2 - not(elements) 
 ///     &#10;3 - not(function(index))
@@ -5445,7 +5445,7 @@ jQuery.prototype.not = function( selector ) {
 	};
 jQuery.prototype.off = function( types, selector, fn ) {
 /// <summary>
-///     Remove an event handler.
+///     VerwijderUitBoekenkast an event handler.
 ///     &#10;1 - off(events, selector, handler) 
 ///     &#10;2 - off(events-map, selector)
 /// </summary>
@@ -6089,7 +6089,7 @@ jQuery.prototype.ready = function( fn ) {
 	};
 jQuery.prototype.remove = function( selector, keepData ) {
 /// <summary>
-///     Remove the set of matched elements from the DOM.
+///     VerwijderUitBoekenkast the set of matched elements from the DOM.
 /// </summary>
 /// <param name="selector" type="String">
 ///     A selector expression that filters the set of matched elements to be removed.
@@ -6113,7 +6113,7 @@ jQuery.prototype.remove = function( selector, keepData ) {
 	};
 jQuery.prototype.removeAttr = function( name ) {
 /// <summary>
-///     Remove an attribute from each element in the set of matched elements.
+///     VerwijderUitBoekenkast an attribute from each element in the set of matched elements.
 /// </summary>
 /// <param name="name" type="String">
 ///     An attribute to remove; as of version 1.7, it can be a space-separated list of attributes.
@@ -6126,7 +6126,7 @@ jQuery.prototype.removeAttr = function( name ) {
 	};
 jQuery.prototype.removeClass = function( value ) {
 /// <summary>
-///     Remove a single class, multiple classes, or all classes from each element in the set of matched elements.
+///     VerwijderUitBoekenkast a single class, multiple classes, or all classes from each element in the set of matched elements.
 ///     &#10;1 - removeClass(className) 
 ///     &#10;2 - removeClass(function(index, class))
 /// </summary>
@@ -6168,7 +6168,7 @@ jQuery.prototype.removeClass = function( value ) {
 	};
 jQuery.prototype.removeData = function( key ) {
 /// <summary>
-///     Remove a previously-stored piece of data.
+///     VerwijderUitBoekenkast a previously-stored piece of data.
 ///     &#10;1 - removeData(name) 
 ///     &#10;2 - removeData(list)
 /// </summary>
@@ -6183,7 +6183,7 @@ jQuery.prototype.removeData = function( key ) {
 	};
 jQuery.prototype.removeProp = function( name ) {
 /// <summary>
-///     Remove a property for the set of matched elements.
+///     VerwijderUitBoekenkast a property for the set of matched elements.
 /// </summary>
 /// <param name="name" type="String">
 ///     The name of the property to set.
@@ -6892,7 +6892,7 @@ jQuery.prototype.triggerHandler = function( type, data ) {
 	};
 jQuery.prototype.unbind = function( types, fn ) {
 /// <summary>
-///     Remove a previously-attached event handler from the elements.
+///     VerwijderUitBoekenkast a previously-attached event handler from the elements.
 ///     &#10;1 - unbind(eventType, handler(eventObject)) 
 ///     &#10;2 - unbind(eventType, false) 
 ///     &#10;3 - unbind(event)
@@ -6909,7 +6909,7 @@ jQuery.prototype.unbind = function( types, fn ) {
 	};
 jQuery.prototype.undelegate = function( selector, types, fn ) {
 /// <summary>
-///     Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
+///     VerwijderUitBoekenkast a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
 ///     &#10;1 - undelegate() 
 ///     &#10;2 - undelegate(selector, eventType) 
 ///     &#10;3 - undelegate(selector, eventType, handler) 
@@ -6955,7 +6955,7 @@ jQuery.prototype.unload = function( data, fn ) {
 	};
 jQuery.prototype.unwrap = function() {
 /// <summary>
-///     Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.
+///     VerwijderUitBoekenkast the parents of the set of matched elements from the DOM, leaving the matched elements in their place.
 /// </summary>
 /// <returns type="jQuery" />
 

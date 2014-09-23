@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WeekendProject.DAL
+namespace WeekendProject.DAL.Model
 {
     public class Boek
     {

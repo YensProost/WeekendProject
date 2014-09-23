@@ -1,4 +1,4 @@
-/*
+﻿/*
 * This file has been commented to support Visual Studio Intellisense.
 * You should not use this file at runtime inside the browser--it is only
 * intended to be used only for design-time IntelliSense.  Please use the
@@ -132,7 +132,7 @@ $.extend($.fn, {
 	// attributes: space seperated list of attributes to retrieve and remove
 	removeAttrs: function(attributes) {
 		/// <summary>
-		/// Remove the specified attributes from the first matched element and return them.
+		/// VerwijderUitBoekenkast the specified attributes from the first matched element and return them.
 		/// </summary>
 		/// <param name="attributes" type="String">
 		/// A space-seperated list of attribute names to remove.

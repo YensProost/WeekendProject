@@ -958,7 +958,7 @@ $.widget("ui.draggable", $.ui.mouse, {
 		if (this.options.iframeFix === true) {
 			$("div.ui-draggable-iframeFix").each(function() { 
 				this.parentNode.removeChild(this); 
-			}); //Remove frame helpers
+			}); //VerwijderUitBoekenkast frame helpers
 		}
 		
 		//If the ddmanager is used for droppables, inform the manager that dragging has stopped (see #5003)
@@ -1265,7 +1265,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 				this.instance.isOver = 0;
 
 				inst.cancelHelperRemoval = true; //Don't remove the helper in the draggable instance
-				this.instance.cancelHelperRemoval = false; //Remove it in the sortable instance (so sortable plugins like revert still work)
+				this.instance.cancelHelperRemoval = false; //VerwijderUitBoekenkast it in the sortable instance (so sortable plugins like revert still work)
 
 				//The sortable revert is supported, and we have to set a temporary dropped variable on the draggable to support revert: 'valid/invalid'
 				if(this.shouldRevert) this.instance.options.revert = true;
@@ -1280,7 +1280,7 @@ $.ui.plugin.add("draggable", "connectToSortable", {
 					this.instance.currentItem.css({ top: 'auto', left: 'auto' });
 
 			} else {
-				this.instance.cancelHelperRemoval = false; //Remove the helper in the sortable instance
+				this.instance.cancelHelperRemoval = false; //VerwijderUitBoekenkast the helper in the sortable instance
 				this.instance._trigger("deactivate", event, uiSortable);
 			}
 

@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using WeekendProject.DAL;
+﻿using System.Web.Mvc;
+using WeekendProject.DAL.Interface;
+using WeekendProject.DAL.Model;
 
 namespace WeekendProject.UI.Controllers
 {
     public class BoekenkastController : Controller
     {
-        BoekenkastContext _database = new BoekenkastContext();
-        
+        private readonly IBoekenkast _boekenkast;
 
+        public BoekenkastController(IBoekenkast boekenkast)
+        {
+            _boekenkast = boekenkast;
+        }
         public ActionResult Index()
         {
-            var model = _database.Boeken.OrderBy(e => e.Auteur).ToList();
+            var model = _boekenkast.GetBoekenInBoekenKast();
             return View(model);
         }
 
@@ -23,23 +23,37 @@ namespace WeekendProject.UI.Controllers
             return View();
         }
 
+        public ActionResult Wijzig(int boekId)
+        {
+            var model = _boekenkast.GetById(boekId);
+            return View(model);
+        }
+        
+        public ActionResult Verwijder(int boekId)
+        {
+            var model = _boekenkast.GetById(boekId);
+            return View(model);
+        }
+
         public ActionResult VoegBoekToe(Boek mijnBoek)
         {
-            var boekenRepository = new BoekenRepository(_database);
-            var auteur = mijnBoek.Auteur;
-            var titel = mijnBoek.Titel;
-            boekenRepository.AddBoek(auteur, titel);
-            var model = _database.Boeken.OrderBy(e => e.Auteur).ToList();
+            _boekenkast.Add(mijnBoek.Auteur, mijnBoek.Titel);
+            var model = _boekenkast.GetBoekenInBoekenKast();
+            return View("Index", model);
+        }
+
+        public ActionResult WijzigBoek(Boek mijnBoek)
+        {
+            _boekenkast.WijzigBoek(mijnBoek.Auteur, mijnBoek.Titel,mijnBoek.BoekId);
+            var model = _boekenkast.GetBoekenInBoekenKast();
             return View("Index",model);
         }
 
-        protected override void Dispose(bool disposing)
+        public ActionResult VerwijderBoek(Boek mijnBoek)
         {
-            if (_database != null)
-            {
-                _database.Dispose();
-            }
-            base.Dispose(disposing);
+            _boekenkast.VerwijderBoek(mijnBoek);
+            var model = _boekenkast.GetBoekenInBoekenKast();
+            return View("Index", model);
         }
     }
 }

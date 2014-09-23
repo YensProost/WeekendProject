@@ -1,23 +1,28 @@
-﻿@model IEnumerable<WeekendProject.DAL.Boek>
+﻿@model IEnumerable<WeekendProject.DAL.Model.Boek>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Lijst met boeken aanwezig in de database.</h2>
+<script>window.history.pushState(null,null,"/Boekenkast")</script>
+
+<h2>Lijst met boeken aanwezig in de boekenkast.</h2>
 <br/>
-@Html.ActionLink("Koop een nieuw boek.","Create","Boekenkast")
-<table>
-    <tr>
-        <td>
-            @foreach (var item in Model)
-            {
+@Html.ActionLink("Voeg een nieuw boek toe aan de boekenkast.","Create","Boekenkast")
+<table> 
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
                 <h4> @item.Auteur</h4>
-                <div>@item.BoekId., @item.Titel</div>
-            }
-        </td>
-        <td>
-            <button name="EditButton" type="button" onclick="">Wijzig dit boek.</button>
-        </td>
-    </tr>
+                <div>@item.Titel</div>
+            
+            </td>
+            <td>
+                @Html.ActionLink("Wijzig dit boek.","Wijzig","Boekenkast",new {boekId = item.BoekId},null)
+                @Html.ActionLink("Verwijder dit boek.","Verwijder","Boekenkast",new {boekId=item.BoekId},null)
+            </td>
+        
+        </tr>
+    }
 </table>

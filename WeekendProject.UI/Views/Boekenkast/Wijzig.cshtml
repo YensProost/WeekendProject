@@ -1,0 +1,19 @@
+﻿@model WeekendProject.DAL.Model.Boek
+
+@{
+    ViewBag.Title = "Boek wijzigen";
+}
+
+<h2>Boek wijzigen</h2>
+@using (Html.BeginForm("WijzigBoek", "Boekenkast", FormMethod.Post))
+{
+    <div>
+        @Html.HiddenFor(model => model.BoekId)
+        <h4>Titel van het boek:</h4>
+        @Html.TextBoxFor(model => model.Titel)
+        <h4>Auteur van het boek:</h4>
+        @Html.TextBoxFor(model => model.Auteur)
+        <br/>
+        <button type="submit">Wijzig het boek.</button>
+    </div>
+}
