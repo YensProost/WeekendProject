@@ -8,6 +8,15 @@ namespace WeekendProject.UI
         // For more information on Bundling, visit http://go.microsoft.com/fwlink/?LinkId=254725
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new ScriptBundle("~/bundles/boekkast").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery-ui-{version}.js",
+                "~/Scripts/jquery-unobtrusive*",
+                "~/Scripts/jquery-validate*",
+                "~/Scripts/boekkast.js",
+                "~/Scripts/clickable.js"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using WeekendProject.DAL.Model;
 
@@ -18,5 +19,6 @@ namespace WeekendProject.DAL.Interface
         void KrijgBoekTerug(Boek boek);
         bool LeenBoekUit(Boek boek, Persoon persoon);
         void VerwijderBoek(Boek mijnBoek);
+        List<Boek> ZoekBoekenInBoekenkast(string zoekterm);
     }
 }

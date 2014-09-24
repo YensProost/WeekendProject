@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Web.UI.WebControls.WebParts;
 using WeekendProject.DAL.Interface;
 using WeekendProject.DAL.Model;
 
@@ -12,9 +14,13 @@ namespace WeekendProject.UI.Controllers
         {
             _boekenkast = boekenkast;
         }
-        public ActionResult Index()
+        public ActionResult Index(string zoekterm = null, int page = 1)
         {
-            var model = _boekenkast.GetBoekenInBoekenKast();
+            var model = zoekterm ==null ? _boekenkast.GetBoekenInBoekenKast() : _boekenkast.ZoekBoekenInBoekenkast(zoekterm);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Boeken", model);
+            }
             return View(model);
         }
 

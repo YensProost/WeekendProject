@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using WeekendProject.DAL.Interface;
 using WeekendProject.DAL.Model;
@@ -60,11 +61,18 @@ namespace WeekendProject.DAL
             }
         }
 
+        public List<Boek> ZoekBoekenInBoekenkast(string zoekterm)
+        {
+            return _context.Boeken.Where(e => e.Titel.Contains(zoekterm))
+                                  .OrderBy(e => e.Auteur)
+                                  .ToList();
+        }
+
         public List<Boek> GetBoekenInBoekenKast()
         {
             return _context.Boeken.Where(e => e.PersoonId == 4)
-                .OrderBy(e => e.Auteur)
-                .ToList();
+                                  .OrderBy(e => e.Auteur)
+                                  .ToList();
         }
 
         public Boek GetById(int boekId)

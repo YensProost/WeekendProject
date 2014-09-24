@@ -6,23 +6,11 @@
 
 <script>window.history.pushState(null,null,"/Boekenkast")</script>
 
-<h2>Lijst met boeken aanwezig in de boekenkast.</h2>
-<br/>
-@Html.ActionLink("Voeg een nieuw boek toe aan de boekenkast.","Create","Boekenkast")
-<table> 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <h4> @item.Auteur</h4>
-                <div>@item.Titel</div>
-            
-            </td>
-            <td>
-                @Html.ActionLink("Wijzig dit boek.","Wijzig","Boekenkast",new {boekId = item.BoekId},null)
-                @Html.ActionLink("Verwijder dit boek.","Verwijder","Boekenkast",new {boekId=item.BoekId},null)
-            </td>
-        
-        </tr>
-    }
-</table>
+<form method="GET" action="@Url.Action("Index")" 
+      data-boekkast-ajax="true" data-boekkast-target="#boekLijst">
+    
+    <input type="Search" name="zoekterm"/><br/>
+    <input type="Submit" name="Zoeken op Titel" value="Zoek op titel."/><hr/>
+</form>
+
+@Html.Partial("_Boeken",Model)

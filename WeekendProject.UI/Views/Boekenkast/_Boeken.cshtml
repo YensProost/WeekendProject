@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WeekendProject.DAL.Model.Boek>
+
+<div id="boekLijst">
+    <h2>Lijst met boeken aanwezig in de boekenkast.</h2>
+    <br/>
+    @Html.ActionLink("Voeg een nieuw boek toe aan de boekenkast.","Create","Boekenkast")
+    
+    @foreach (var item in Model)
+    {   
+        <div class="clickable">
+            <table class="top"> 
+                <tr>
+                    <td>
+                        <h4> @item.Auteur</h4>
+                        <div>@item.Titel</div>
+                    </td>
+                </tr>
+            </table>
+            <div class="clickable">
+                <table class="sub1">
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Wijzig dit boek.","Wijzig","Boekenkast",new {boekId = item.BoekId},null)
+                            @Html.ActionLink("Verwijder dit boek.","Verwijder","Boekenkast",new {boekId=item.BoekId},null)
+                        </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+    }
+</div>

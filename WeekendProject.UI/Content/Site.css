@@ -1,13 +1,13 @@
 ﻿html {
-    background-color: #e2e2e2;
+    background-color: #b97a57;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #fff;
-    border-top: solid 10px #000;
-    color: #333;
+    background-color: #b97a57;
+    border-top: solid 10px #b97a57;
+    color: #ffe7e7;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -15,7 +15,7 @@ body {
 }
 
 a {
-    color: #333;
+    color: #ffe7e7;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
@@ -24,11 +24,11 @@ a {
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #333;
+        color: #ffe7e7;
     }
 
     a:hover {
-        background-color: #c7d1d6;
+        background-color: #e38414;
     }
 
 header, footer, hgroup,
@@ -99,13 +99,13 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #b55e35;
     clear: both;
     padding-bottom: 35px;
 }
 
     .main-content {
-        background: url("../Images/accent.png") no-repeat;
+        background: url("../Images/heroAccent.png") no-repeat;
         padding-left: 10px;
         padding-top: 30px;
     }
@@ -120,7 +120,7 @@ header .content-wrapper {
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
+    background-color: #b97a57;
     font-size: .8em;
     height: 100px;
 }
@@ -153,7 +153,7 @@ footer {
 }
 
     #login a {
-        background-color: #d3dce0;
+        background-color: #b97a57;
         margin-left: 10px;
         margin-right: 3px;
         padding: 2px 3px;
@@ -426,6 +426,7 @@ label.checkbox {
 
 input, textarea {
     border: 1px solid #e2e2e2;
+    border-radius: 22px;
     background: #fff;
     color: #333;
     font-size: 1.2em;
@@ -452,8 +453,9 @@ textarea {
     input[type="submit"],
     input[type="button"],
     button {
-        background-color: #d3dce0;
+        background-color: #e0e0e0;
         border: 1px solid #787878;
+        border-radius: 22px;
         cursor: pointer;
         font-size: 1.2em;
         font-weight: 600;
@@ -580,6 +582,23 @@ th {
 td {
     padding: 0.25em 2em 0.25em 0em;
     border: 0 none;
+}
+
+.top {
+    margin-bottom: 10px;
+}
+
+.sub1 {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable>.clickable {
+    display: none;
 }
 
 tr.pager td {

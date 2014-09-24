@@ -243,6 +243,10 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Images\boekenkast.jpg" />
+    <Content Include="Images\boekkast.png" />
+    <Content Include="Scripts\boekkast.js" />
+    <Content Include="Scripts\clickable.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -300,6 +304,7 @@
     <Content Include="Views\Boekenkast\Create.cshtml" />
     <Content Include="Views\Boekenkast\Wijzig.cshtml" />
     <Content Include="Views\Boekenkast\Verwijder.cshtml" />
+    <Content Include="Views\Boekenkast\_Boeken.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
