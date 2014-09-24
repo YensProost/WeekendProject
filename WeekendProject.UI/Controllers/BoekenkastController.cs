@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
+using Antlr.Runtime.Misc;
+using WeekendProject.DAL;
 using WeekendProject.DAL.Interface;
 using WeekendProject.DAL.Model;
 
@@ -8,6 +11,7 @@ namespace WeekendProject.UI.Controllers
 {
     public class BoekenkastController : Controller
     {
+        BoekenkastContext _context = new BoekenkastContext();
         private readonly IBoekenkast _boekenkast;
 
         public BoekenkastController(IBoekenkast boekenkast)
@@ -22,6 +26,14 @@ namespace WeekendProject.UI.Controllers
                 return PartialView("_Boeken", model);
             }
             return View(model);
+        }
+
+        public ActionResult Autocomplete(string term)
+        {
+            var model = _context.Boeken.Where(r => r.Titel.StartsWith(term))
+                                  .Take(10)
+                                  .Select(r => r.Titel);
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Create()

@@ -16,5 +16,17 @@
         return false;
     };
 
+    var createAutocomplete = function () {
+        var $input = $(this);
+
+        var options = {
+            source: $input.attr("data-boekkast-autocomplete")
+        };
+
+        $input.autocomplete(options);
+    };
+
     $("form[data-boekkast-ajax='true']").submit(ajaxFormSubmit);
+    $("input[data-boekkast-autocomplete]").each(createAutocomplete);
+
 });

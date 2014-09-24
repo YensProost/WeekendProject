@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Web.Mvc;
 using WeekendProject.DAL.Interface;
 using WeekendProject.DAL.Model;
 using WeekendProject.DAL.Repository;
@@ -66,6 +68,13 @@ namespace WeekendProject.DAL
             return _context.Boeken.Where(e => e.Titel.Contains(zoekterm))
                                   .OrderBy(e => e.Auteur)
                                   .ToList();
+        }
+
+        public IQueryable<string> Autocompletion(string term)
+        {
+            return _context.Boeken.Where(r => r.Titel.StartsWith(term))
+                                  .Take(10)
+                                  .Select(r => r.Titel);
         }
 
         public List<Boek> GetBoekenInBoekenKast()
