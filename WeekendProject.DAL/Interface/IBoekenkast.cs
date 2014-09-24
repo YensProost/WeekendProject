@@ -21,6 +21,5 @@ namespace WeekendProject.DAL.Interface
         bool LeenBoekUit(Boek boek, Persoon persoon);
         void VerwijderBoek(Boek mijnBoek);
         List<Boek> ZoekBoekenInBoekenkast(string zoekterm);
-        IQueryable<string> Autocompletion(string test);
     }
 }

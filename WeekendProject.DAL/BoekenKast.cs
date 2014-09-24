@@ -70,13 +70,6 @@ namespace WeekendProject.DAL
                                   .ToList();
         }
 
-        public IQueryable<string> Autocompletion(string term)
-        {
-            return _context.Boeken.Where(r => r.Titel.StartsWith(term))
-                                  .Take(10)
-                                  .Select(r => r.Titel);
-        }
-
         public List<Boek> GetBoekenInBoekenKast()
         {
             return _context.Boeken.Where(e => e.PersoonId == 4)

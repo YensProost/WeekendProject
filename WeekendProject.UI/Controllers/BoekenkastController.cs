@@ -32,8 +32,11 @@ namespace WeekendProject.UI.Controllers
         {
             var model = _context.Boeken.Where(r => r.Titel.StartsWith(term))
                                   .Take(10)
-                                  .Select(r => r.Titel);
-            return Json(model, JsonRequestBehavior.AllowGet);
+                                  .Select(r => new
+                                  {
+                                      label = r.Titel
+                                  });
+            return Json(model, JsonRequestBehavior.AllowGet); 
         }
 
         public ActionResult Create()
