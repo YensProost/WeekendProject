@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using WeekendProject.DAL.Model;
 
 namespace WeekendProject.DAL
 {

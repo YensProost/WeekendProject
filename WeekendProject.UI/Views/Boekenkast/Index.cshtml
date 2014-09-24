@@ -1,0 +1,16 @@
+﻿@model IEnumerable<WeekendProject.DAL.Model.Boek>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script>window.history.pushState(null,null,"/Boekenkast")</script>
+
+<form method="GET" action="@Url.Action("Index")" 
+      data-boekkast-ajax="true" data-boekkast-target="#boekLijst">
+    
+    <input type="Search" name="zoekterm" data-boekkast-autocomplete="@Url.Action("Autocomplete")"/>
+    <input type="Submit" name="Zoeken op Titel" value="Zoek op titel."/><hr/>
+</form>
+
+@Html.Partial("_Boeken",Model)
