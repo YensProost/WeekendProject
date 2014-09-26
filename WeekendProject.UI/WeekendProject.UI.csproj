@@ -304,6 +304,7 @@
     <Content Include="Views\Boekenkast\Wijzig.cshtml" />
     <Content Include="Views\Boekenkast\Verwijder.cshtml" />
     <Content Include="Views\Boekenkast\_Boeken.cshtml" />
+    <Content Include="Views\Boekenkast\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using System.Web.UI.WebControls.WebParts;
-using Antlr.Runtime.Misc;
 using WeekendProject.DAL;
 using WeekendProject.DAL.Interface;
 using WeekendProject.DAL.Model;
@@ -41,6 +39,10 @@ namespace WeekendProject.UI.Controllers
 
         public ActionResult Create()
         {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Create");
+            }
             return View();
         }
 
@@ -60,6 +62,10 @@ namespace WeekendProject.UI.Controllers
         {
             _boekenkast.Add(mijnBoek.Auteur, mijnBoek.Titel);
             var model = _boekenkast.GetBoekenInBoekenKast();
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_Boeken");
+            }
             return View("Index", model);
         }
 

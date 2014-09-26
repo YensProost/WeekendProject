@@ -3,12 +3,16 @@
 <div id="boekLijst">
     <h2>Lijst met boeken aanwezig in de boekenkast.</h2>
     <br/>
-    @Html.ActionLink("Voeg een nieuw boek toe aan de boekenkast.","Create","Boekenkast")
-    
+@*    @Ajax.ActionLink("Voeg een nieuw boek toe aan de boekenkast.","Create","Boekenkast",new AjaxOptions() )*@
+    <form method="GET" action="@Url.Action("Create")"
+          data-boekkast-ajax="true" data-boekkast-target="#boekLijst">
+        <input type="submit" name="AddBoekKnop" value="Voeg een nieuw boek toe aan de boekenkast."/>
+    </form>
+
     @foreach (var item in Model)
-    {   
+    {
         <div class="clickable">
-            <table class="top"> 
+            <table class="top">
                 <tr>
                     <td>
                         <h4> @item.Auteur</h4>
@@ -20,12 +24,12 @@
                 <table class="sub1">
                     <tr>
                         <td>
-                            @Html.ActionLink("Wijzig dit boek.","Wijzig","Boekenkast",new {boekId = item.BoekId},null)
-                            @Html.ActionLink("Verwijder dit boek.","Verwijder","Boekenkast",new {boekId=item.BoekId},null)
+                            @Ajax.ActionLink("Wijzig dit boek.", "Wijzig", "Boekenkast", new { boekId = item.BoekId }, new AjaxOptions())
+                            @Ajax.ActionLink("Verwijder dit boek.", "Verwijder", "Boekenkast", new { boekId = item.BoekId }, new AjaxOptions())
                         </td>
                     </tr>
                 </table>
-                </div>
             </div>
+        </div>
     }
 </div>

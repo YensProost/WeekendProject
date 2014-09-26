@@ -1,0 +1,46 @@
+﻿@model WeekendProject.DAL.Model.Boek
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@*@using (Html.BeginForm()) {*@
+
+<form method="GET" action="@Url.Action("VoegBoekToe","Boekenkast")"
+      data-boekkast-ajax="true" data-boekkast-target="#boekLijst">
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div id="boekLijst">
+        <fieldset>
+            <legend>Boek</legend>
+
+            <div>
+                @Html.HiddenFor(model => model.PersoonId)
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Titel)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Titel)
+                @Html.ValidationMessageFor(model => model.Titel)
+            </div>
+
+            <div>
+                @Html.LabelFor(model => model.Auteur)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Auteur)
+                @Html.ValidationMessageFor(model => model.Auteur)
+            </div>
+
+            <p>
+                <input type="submit" value="Voeg een nieuw boek toe aan de boekenkast." />
+            </p>
+        </fieldset>
+    </div>
+    @*}*@
+</form>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

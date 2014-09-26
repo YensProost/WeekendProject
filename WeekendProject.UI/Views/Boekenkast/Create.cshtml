@@ -3,15 +3,17 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Aangekocht Boek:</h2>
-@using (Html.BeginForm("VoegBoekToe", "Boekenkast", FormMethod.Post))
-{
-    <div>
-        <h4>Auteur</h4>
-        @Html.TextBoxFor(model => model.Auteur)
-        <h4>Titel</h4>
-        @Html.TextBoxFor(model => model.Titel)
-        <br/>
-        <button type="submit">Zet het nieuwe boek in de boekenkast.</button>
-    </div>
-}
+<div id="boekLijst">
+    <h2>Aangekocht Boek:</h2>
+    @using (Html.BeginForm("VoegBoekToe", "Boekenkast", FormMethod.Post))
+    {
+        <div>
+            <h4>Auteur</h4>
+            @Html.TextBoxFor(model => model.Auteur)
+            <h4>Titel</h4>
+            @Html.TextBoxFor(model => model.Titel)
+            <br/>
+            <button type="submit">Zet het nieuwe boek in de boekenkast.</button>
+        </div>
+    }
+</div>
